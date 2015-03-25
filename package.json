@@ -1,12 +1,23 @@
 {
   "name": "shokz",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
+  "description": "Is a simple product's showcase built in nodejs",
+  "homepage": "https://shokz.herokuapp.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jroliveira/shokz.git"
+  },
+  "engines": {
+    "node": ">=0.11.14"
+  },
   "scripts": {
     "start": "node --harmony app.js",
-    "test": "mocha --harmony"
+    "test": "mocha --harmony",
+    "postinstall": "bower install"
   },
   "dependencies": {
+    "bower": "~1",
     "koa": "^0.6.0",
     "koa-logger": "^1.2.0",
     "koa-static": "^1.4.5",
