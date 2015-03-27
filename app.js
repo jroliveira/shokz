@@ -6,15 +6,19 @@ var serve = require('koa-static');
 var route = require('koa-route');
 var koa = require('koa');
 var path = require('path');
+var swig = require('swig');
+var extras = require('swig-extras');
 var app = module.exports = koa();
+
+extras.useFilter(swig, 'truncate');
 
 var products = require('./controllers/products');
 
 // Logger
 app.use(logger());
 
-app.use(route.get('/', products.home));
-app.use(route.get('/products/:id', products.list));
+app.use(route.get('/products/:page', products.list));
+app.use(route.get('/product/:id', products.get));
 
 // Serve static files
 app.use(serve(path.join(__dirname, 'public')));

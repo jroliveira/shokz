@@ -15,13 +15,17 @@ var render = views(__dirname + '/../views', {
     map: { html: 'swig' }
 });
 
-module.exports.home = function *home() {
-    var products = yield productsCollection.find({});
-    this.body = yield render('products', { 'products': products });
-};
-
-module.exports.list = function *list(id) {
-  var pageIndex = parseInt(id) - 1;
+module.exports.list = function *list(page) {
+  var pageIndex = parseInt(page) - 1;
   var products = yield productsCollection.find({ }, { limit: config.itemsPerPage, skip: (pageIndex * config.itemsPerPage) });
   this.body = yield render('products', { 'products': products });
+};
+
+module.exports.get = function *get(id) {
+    var product = products[id];
+    if (!product) {
+        this.throw(404, 'product with id = ' + id + ' was not found');
+    }
+
+    this.body = yield render('product', { 'product': product });
 };

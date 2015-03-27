@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}detalhes{% endblock %}
+
+{% block content %}
+    <div class="col-md-3 product-box">
+        <img src="{{ product.img }}" class="img-responsive" alt="{{ product.name }}">
+        <div class="product-title">{{ product.name }}</div>
+        <div class="product-price">
+            <div class="pull-right">
+                <a href="#" class="btn btn-danger btn-sm" role="button">BUY</a>
+            </div>
+            <div class="price-text">$ {{ product.price }}</div>
+        </div>
+    </div>
+{% endblock %}
