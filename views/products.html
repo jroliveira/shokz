@@ -7,15 +7,15 @@
         {% for product in products %}
             <div class="col-md-3 product-box">
                 <div class="product-title">
-                    <a href="/{{ product.title }}">{{ product.name }}</a>
+                    <a href="/product/{{ product.title }}">{{ product.name }}</a>
                 </div>
-                <a href="/{{ product.title }}">
+                <a href="/product/{{ product.title }}">
                     <img src="{{ product.img }}" class="img-responsive" alt="{{ product.name }}">
                 </a>
                 <div class="product-description">{{ product.description|truncate(130) }}</div>
                 <div class="product-price">
                     <div class="pull-right">
-                        <a href="/{{ product.title }}" class="btn btn-danger btn-sm" role="button">BUY</a>
+                        <a href="/product/{{ product.title }}" class="btn btn-danger btn-sm" role="button">BUY</a>
                     </div>
                     <div class="price-text">$ {{ product.price }}</div>
                 </div>
