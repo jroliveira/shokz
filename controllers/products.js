@@ -2,7 +2,6 @@
 
 var config = require('./../lib/config');
 var views = require('co-views');
-//var parse = require('co-body'); //TODO: We are not using is parse D:
 
 // Set up monk
 var monk = require('monk');
@@ -19,4 +18,10 @@ var render = views(__dirname + '/../views', {
 module.exports.home = function *home() {
     var products = yield productsCollection.find({});
     this.body = yield render('products', { 'products': products });
+};
+
+module.exports.list = function *list(id) {
+  var pageIndex = parseInt(id) - 1;
+  var products = yield productsCollection.find({ }, { limit: config.itemsPerPage, skip: (pageIndex * config.itemsPerPage) });
+  this.body = yield render('products', { 'products': products });
 };
