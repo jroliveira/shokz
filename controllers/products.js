@@ -1,12 +1,13 @@
 'use strict';
 
+var config = require('./../lib/config');
 var views = require('co-views');
-var parse = require('co-body');
+//var parse = require('co-body'); //TODO: We are not using is parse D:
 
 // Set up monk
 var monk = require('monk');
 var wrap = require('co-monk');
-var db = monk('mongodb://admin:admin@dharma.mongohq.com:10038/products');
+var db = monk(config.getDatabaseUrl());
 
 // Wrap monk in generator goodness
 var productsCollection = wrap(db.get('products'));
