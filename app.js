@@ -18,7 +18,7 @@ var products = require('./controllers/products');
 app.use(logger());
 
 app.use(route.get('/products/:page', products.list));
-app.use(route.get('/product/:id', products.get));
+app.use(route.get('/product/:title', products.get));
 
 // Serve static files
 app.use(serve(path.join(__dirname, 'public')));

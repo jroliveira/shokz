@@ -21,10 +21,11 @@ module.exports.list = function *list(page) {
   this.body = yield render('products', { 'products': products });
 };
 
-module.exports.get = function *get(id) {
-    var product = products[id];
+module.exports.get = function *get(title) {
+    var product = yield productsCollection.findOne({ title: title });
+        
     if (!product) {
-        this.throw(404, 'product with id = ' + id + ' was not found');
+        this.throw(404, 'product with title equal to ' + title + ' was not found');
     }
 
     this.body = yield render('product', { 'product': product });

@@ -1,10 +1,12 @@
 .product-box {
     background-color: #ffffff;
-	padding: 0px 5px;
 	margin-bottom: 70px;
 }
 
 .product-title {
+    border-top: solid 1px #eeeeee;
+    border-left: solid 1px #eeeeee;
+    border-right: solid 1px #eeeeee;
     font-weight: bold;
 	padding: 5px 10px 5px 10px;
     height: 50px;
@@ -12,7 +14,6 @@
 }
 
 .product-description {
-    font-weight: bold;
 	padding: 5px 10px 5px 10px;
     border-left: solid 1px #dadada;
     border-right: solid 1px #dadada;
@@ -21,6 +22,7 @@
 }
 
 .product-price {
+    background-color: #f1f1f1;
 	border: 1px solid #dadada;
 	padding: 10px;
     -webkit-box-shadow: 0 8px 6px -6px  #999;
@@ -31,4 +33,19 @@
 .price-text {
     font-weight: bold;
 	font-size: 1.4em;
+}
+
+.detail-title {
+    font-weight: bold;
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.detail-description {
+	font-size: 20px;
+    text-align: center;
+}
+
+.detail-price { 
+    margin-bottom: 20px;
 }

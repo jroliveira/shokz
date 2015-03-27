@@ -3,17 +3,23 @@
 {% block title %}showcase{% endblock %}
 
 {% block content %}
-    {% for product in products %}
-        <div class="col-md-3 product-box">
-            <div class="product-title">{{ product.name }}</div>
-            <img src="{{ product.img }}" class="img-responsive" alt="{{ product.name }}">
-            <div class="product-description">{{ product.description|truncate(130) }}</div>
-            <div class="product-price">
-                <div class="pull-right">
-                    <a href="/{{ product.id }}" class="btn btn-danger btn-sm" role="button">BUY</a>
+    <div class="row">
+        {% for product in products %}
+            <div class="col-md-3 product-box">
+                <div class="product-title">
+                    <a href="/{{ product.title }}">{{ product.name }}</a>
                 </div>
-                <div class="price-text">$ {{ product.price }}</div>
+                <a href="/{{ product.title }}">
+                    <img src="{{ product.img }}" class="img-responsive" alt="{{ product.name }}">
+                </a>
+                <div class="product-description">{{ product.description|truncate(130) }}</div>
+                <div class="product-price">
+                    <div class="pull-right">
+                        <a href="/{{ product.title }}" class="btn btn-danger btn-sm" role="button">BUY</a>
+                    </div>
+                    <div class="price-text">$ {{ product.price }}</div>
+                </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 {% endblock %}
