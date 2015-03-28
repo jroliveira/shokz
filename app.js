@@ -11,10 +11,14 @@ const
     extras = require('swig-extras'),
     app = module.exports = koa();
 
+require('./lib/string-format');
+
 require('koa-qs')(app);
 extras.useFilter(swig, 'truncate');
 
-var products = require('./controllers/products');
+let products = require('./controllers/products'),
+    setup = require('./controllers/setup'),
+    home = require('./controllers/home');
 
 // Logger
 app.use(logger());
@@ -22,6 +26,8 @@ app.use(logger());
 app.use(route.get('/products/:page', products.list));
 app.use(route.get('/products', products.find));
 app.use(route.get('/product/:title', products.get));
+app.use(route.get('/setup', setup.index));
+app.use(route.get('/', home.index));
 
 // Serve static files
 app.use(serve(path.join(__dirname, 'public')));

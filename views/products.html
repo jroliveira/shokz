@@ -7,27 +7,72 @@
         {% if products.length === 0 %}
             <div class="col-md-12 text-center">
                 <h3>
-                    <span class="text-warning" style="word-spacing: 5px;">
+                    <span class="text-warning" style="letter-spacing: 5px;">
                         <span class="glyphicon glyphicon-thumbs-down"></span>&nbsp;no result found...
                     </span>
                 </h3>
+            </div>
+        {% else %}
+            <div class="col-md-12" style="margin-bottom: 30px;">
+                <div class="btn-group pull-right">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span class="glyphicon glyphicon-sort"></span>&nbsp;Sort <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-sort-by-order" aria-hidden="true"></span>&nbsp;by low price
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-sort-by-order-alt" aria-hidden="true"></span>&nbsp;by high price
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">by newest</a>
+                        </li>
+                        <li>
+                            <a href="#">by oldest</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         {% endif %}
         
         {% for product in products %}
             <div class="col-md-3 product-box">
                 <div class="product-title">
-                    <a href="/product/{{ product.title }}">{{ product.name }}</a>
+                    <a class="btn" href="/product/{{ product.title }}">{{ product.name|truncate(30) }}</a>
                 </div>
                 <a href="/product/{{ product.title }}">
                     <img src="{{ product.img }}" class="img-responsive" alt="{{ product.name }}">
                 </a>
-                <div class="product-description">{{ product.description|truncate(130) }}</div>
+                <div class="product-description">
+                    <h5>
+                        {{ product.description|truncate(130) }}
+                    </h5>
+                </div>
+                <div class="product-tags">
+                    {% for tag in product.tags %}
+                        {% if loop.index < 4 %}
+                            <small>
+                                <span class="glyphicon glyphicon-tag"></span>&nbsp;{{ tag }}
+                            </small>
+                        {% endif %}
+                    {% endfor %}
+                </div>
                 <div class="product-price">
-                    <div class="pull-right">
-                        <a href="/product/{{ product.title }}" class="btn btn-danger btn-sm" role="button">BUY</a>
-                    </div>
-                    <div class="price-text">$ {{ product.price }}</div>
+                    <!--
+                    <a href="/product/{{ product.title }}" class="btn" role="button">
+                        <span class="glyphicon glyphicon-heart"></span>&nbsp;{{ product.wishes }}&nbsp;<small>wishes</small>
+                    </a>
+                    -->
+                    <span class="btn btn-sm">&#9786;</span>
+                    <a href="/product/{{ product.title }}" class="btn btn-warning btn-sm pull-right" role="button">
+                        $ {{ product.price }} BUY
+                    </a>
                 </div>
             </div>
         {% endfor %}

@@ -7,11 +7,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>{% block title %}shokz{% endblock %}</title>
-
+    <title>shokz - {% block title %}{% endblock %}</title>
+    
+    <link rel="shortcut icon" href="/images/heart.ico" />
+    
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/bower_components/bootstrap-select/bootstrap-select.min.css">
-
     <link rel="stylesheet" type="text/css" href="/styles/products.css">
     <link rel="stylesheet" type="text/css" href="/styles/style.css">
 </head>
@@ -26,7 +26,7 @@
                             <div>
                                 <a href="/products/1">
                                     <span class="glyphicon glyphicon-heart-empty" style="font-size: 40px;"></span>
-                                    <span style="font-size: 21px;">s h o w K Z</span>
+                                    <span style="font-size: 21px;">s h o K Z</span>
                                 </a>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                            </ul>
+                            </ul>                           
                             <form class="navbar-form navbar-right" role="search" action="/products" method="get">
                                 <div class="form-group">
                                     <div class="input-group">
@@ -73,6 +73,9 @@
             </p>
         </div>
     </div>
+    
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
