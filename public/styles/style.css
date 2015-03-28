@@ -47,3 +47,40 @@ body {
 #footer a {
     color: #999;
 }
+
+article {
+    padding-top: 165px;
+}
+
+.navbar-form .btn {
+    padding: 9px;
+}
+
+.navbar-fixed-top {
+  top: 80;
+}
+
+.head {
+    height: 80px;
+    color: #666;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1040;
+    top: 0px;
+    background-color: #333;
+    border-bottom: 1px solid #080808;
+}
+
+    .head > div {
+        padding: 20px 0px;
+    }
+
+        .head a, 
+        .head a:link, 
+        .head a:visited, 
+        .head a:hover, 
+        .head a:active { 
+            color: #666; 
+            text-decoration: none; 
+        }

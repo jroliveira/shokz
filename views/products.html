@@ -4,6 +4,16 @@
 
 {% block content %}
     <div class="row">
+        {% if products.length === 0 %}
+            <div class="col-md-12 text-center">
+                <h3>
+                    <span class="text-warning" style="word-spacing: 5px;">
+                        <span class="glyphicon glyphicon-thumbs-down"></span>&nbsp;no result found...
+                    </span>
+                </h3>
+            </div>
+        {% endif %}
+        
         {% for product in products %}
             <div class="col-md-3 product-box">
                 <div class="product-title">
