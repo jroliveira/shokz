@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports.index = function *index() {
-    yield this.redirect('/products/1');
+module.exports.index = function* index() {
+  this.redirect('/products/1');
 };

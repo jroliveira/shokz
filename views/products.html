@@ -5,40 +5,10 @@
 {% block content %}
     <div class="row">
         {% if products.length === 0 %}
-            <div class="col-md-12 text-center">
-                <h3>
-                    <span class="text-warning" style="letter-spacing: 5px;">
-                        <span class="glyphicon glyphicon-thumbs-down"></span>&nbsp;no result found...
-                    </span>
-                </h3>
-            </div>
-        {% else %}
-            <div class="col-md-12" style="margin-bottom: 30px;">
-                <div class="btn-group pull-right">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <span class="glyphicon glyphicon-sort"></span>&nbsp;Sort <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <a href="#">
-                                <span class="glyphicon glyphicon-sort-by-order" aria-hidden="true"></span>&nbsp;by low price
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="glyphicon glyphicon-sort-by-order-alt" aria-hidden="true"></span>&nbsp;by high price
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">by newest</a>
-                        </li>
-                        <li>
-                            <a href="#">by oldest</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <div class="col-md-12">
+                <h1>No result found.</h1>
+                <p>The product you requested cannot be found.</p>
+            </div>        
         {% endif %}
         
         {% for product in products %}
