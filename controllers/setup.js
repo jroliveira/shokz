@@ -9,7 +9,7 @@ const
 // Wrap monk in generator goodness
 var products = wrap(db.get('products'));
 
-module.exports.index = function* index() {
+module.exports.index = function *index() {
     products.drop(function () {
         products.insert([
             {
@@ -60,5 +60,5 @@ module.exports.index = function* index() {
         ]);
     });
 
-    this.body = 'OK';
+    yield this.body = 'OK';
 };
