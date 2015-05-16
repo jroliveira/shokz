@@ -24,12 +24,4 @@ describe('Routes', function () {
         .expect(200, done);
     });
   });
-
-  describe('GET /product/notfound', function () {
-    it('should return 404', function (done) {
-      request()
-        .get('/product/notfound')
-        .expect(404, done);
-    });
-  });
 });
